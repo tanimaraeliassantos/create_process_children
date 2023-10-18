@@ -7,7 +7,11 @@
 /// @param  
 /// @return 
 int main() {
-        fork();
-        fork();
-        printf("Hello World.\n");
+        pid_t p = fork();
+        if(p<0) {
+            perror("fork fail");
+            exit(1);
+        }
+        printf("Hello world!, process_id(pid) = %d \n", getpid());
+        return 0;
     }
