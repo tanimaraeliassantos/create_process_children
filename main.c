@@ -3,15 +3,25 @@
 #include <unistd.h>
 #include <sys/types.h>
 
+#define DATA_SIZE 1000
+
 /// @brief 
 /// @param  
 /// @return 
 int main() {
-        pid_t p = fork();
-        if(p<0) {
-            perror("fork fail");
-            exit(1);
-        }
-        printf("Hello world!, process_id(pid) = %d \n", getpid());
-        return 0;
+
+    FILE * fPtr;
+    fPtr = fopen("file1.txt", "w");
+    
+    if(fPtr ==NULL)
+    {
+        printf("Unable to create file. \n");
+        exit(EXIT_FAILURE);
+    }
+    else 
+    {
+        printf("File created successfully \n");
+    }
+
+        return 0; 
     }
