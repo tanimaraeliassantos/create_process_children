@@ -1,27 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
 
-#define DATA_SIZE 1000
+void get_file_name(int k, char * buffer, size_t buflen) {
+    snprintf(buffer, buflen, "file_%d.txt", k);
+}
 
-/// @brief 
-/// @param  
-/// @return 
 int main() {
+        const size_t BUFLEN = 50;
+        char file_name[BUFLEN];
 
-    FILE * fPtr;
-    fPtr = fopen("file1.txt", "w");
+        for (int i=0; i <= 3; i++) {
+            get_file_name(i, file_name, BUFLEN);
+            printf("%s\n", file_name);
+        }
+    }
     
-    if(fPtr ==NULL)
-    {
-        printf("Unable to create file. \n");
-        exit(EXIT_FAILURE);
-    }
-    else 
-    {
-        printf("File created successfully \n");
-    }
-
-        return 0; 
-    }
+    
+    
